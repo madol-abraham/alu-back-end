@@ -1,16 +1,23 @@
 #!/usr/bin/python3
 import requests
-Employee EMPLOYEE_NAME is done with tasks(NUMBER_OF_DONE_TASKS/TOTAL_NUMBER_OF_TASKS):
-EMPLOYEE_NAME: Ali johnson
-NUMBER_OF_DONE_TASKS: 6/1o
-TOTAL_NUMBER_OF_TASKS:10
 
-completed_tasks = ["Task 1", "Task 2", "Task 3","Task 4", "Task 5", "Task 6" ]  # tasks
+def get_employee_todo_progress(employee_id):
+    url = fetch('https://jsonplaceholder.typicode.com/todos/1')
+    response = requests.get(url)
+    data = response.json()
 
-for task in completed_tasks:
-    formatted_task = "\t " + task  # Add 1 tabulation and 1 space before the task title
-    print(formatted_task)
+    #Extract employee information
+    EMPLOYEE_NAME:Ali
+    NUMBER_OF_DONE_TASKS:7
+    TOTAL_NUMBER_OF_TASKS:10
 
-print(f"Employee {employee_name} is done with tasks ({done_tasks}/{total_tasks}):")
+    #print employee TODO list progress
+    print(f"Employee {Ali} is done with Tasks(NUMBER_OF_DONE_TASKS/TOTAL_NUMBER_OF_TASKS):")
+
+
+    #print title of completed tasks
+    for task in data['todos']:
+        if task['completed']:
+            print(f"\t{task['title']}")
 
 
